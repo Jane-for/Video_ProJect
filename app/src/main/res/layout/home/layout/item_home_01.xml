@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="103.5dp"
+    android:layout_height="200dp"
+    android:layout_gravity="center"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_home_1"
+            android:layout_width="103.5dp"
+            android:layout_height="148.5dp"
+            android:src="@drawable/ima_home_1" />
+
+        <TextView
+            android:id="@+id/te_home_1"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:background="#eeb8c3"
+            android:text="电影"
+            android:textColor="#000" />
+
+        <TextView
+            android:id="@+id/te_home_2"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="#e2e1e4"
+            android:gravity="right"
+            android:text="0"
+            android:textColor="#000" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/te_home_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="江河水" />
+</LinearLayout>

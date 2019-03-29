@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.open-android:IjkPlayer:1.0.0@aar">
+    <ANNOTATIONS>
+      <root url="jar://D:/android/gradle/caches/transforms-1/files-1.1/IjkPlayer-1.0.0.aar/e78abe6a3f854e0ddecc6d475e40c962/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://D:/android/gradle/caches/transforms-1/files-1.1/IjkPlayer-1.0.0.aar/e78abe6a3f854e0ddecc6d475e40c962/res" />
+      <root url="jar://D:/android/gradle/caches/transforms-1/files-1.1/IjkPlayer-1.0.0.aar/e78abe6a3f854e0ddecc6d475e40c962/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
