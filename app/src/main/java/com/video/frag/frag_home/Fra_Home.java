@@ -70,6 +70,8 @@ public class Fra_Home extends Fragment implements View.OnClickListener {
                     byte[] Picture = (byte[]) msg.obj;
                     //使用BitmapFactory工厂，把字节数组转化为bitmap
                     Bitmap bitmap = BitmapFactory.decodeByteArray(Picture, 0, Picture.length);
+
+
                     bitmapList.add(bitmap);
                     break;
 
@@ -89,20 +91,28 @@ public class Fra_Home extends Fragment implements View.OnClickListener {
         Body body = homeXX.getBody();
         List<ViewItemModels> viewItemModels = body.getViewItemModels();
 
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
-        reay_home_1.setLayoutManager(staggeredGridLayoutManager);
-        RecyHomeAdapter adapter = new RecyHomeAdapter(viewItemModels, this);
-        reay_home_1.setAdapter(adapter);
+//        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+//        reay_home_1.setLayoutManager(staggeredGridLayoutManager);
+//        RecyHomeAdapter adapter = new RecyHomeAdapter(viewItemModels, this);
+//        reay_home_1.setAdapter(adapter);
 
+        getActivity().runOnUiThread(() -> {
+            StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+            reay_home_1.setLayoutManager(staggeredGridLayoutManager);
+            RecyHomeAdapter adapter = new RecyHomeAdapter(viewItemModels, Fra_Home.this);
+            reay_home_1.setAdapter(adapter);
+        });
 
 
 
 
         getImg();
+//        getImg();
 
     }
 
     private void getImg() {
+//    private void getImg() {
 //        OKHTTP.doGetIma(url).enqueue(new Callback() {
 //            @Override
 //            public void onFailure(Call call, IOException e) {
@@ -120,6 +130,9 @@ public class Fra_Home extends Fragment implements View.OnClickListener {
 //        });
     }
 
+//
+//
+//    }
 
     private void initView(View view) {
         reay_home_1 = (RecyclerView) view.findViewById(R.id.reay_home_1);
@@ -130,4 +143,8 @@ public class Fra_Home extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
 
     }
+
+
 }
+
+

@@ -59,6 +59,13 @@ public class Fra_search extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fra_search, container, false);
         initView(view);
 
+        if (DataUtil.home != null) {
+            Home home = DataUtil.home;
+            Log.i(TAG, "onCreateView:DataUtil.home;### "+DataUtil.home.getType());
+            this.hotList = home.hot;
+            this.newList = home.newX;
+            show(1);
+        }
         return view;
 
     }
@@ -76,25 +83,28 @@ public class Fra_search extends Fragment implements View.OnClickListener {
         btn_search_1.setOnClickListener(this);
     }
 
+    String js = null;
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_search_1:
-//                https://z1.m1907.cn/api/v/?z=bc901a8b3b752896e398a102cdbc5654&jx=%E6%B5%81%E6%B5%AA%E5%9C%B0%E7%90%83
                 String ed = ed_search_1.getText().toString().trim();
                 if (0 != ed.length()) {
                     String url = API + ed;
                     Log.i("tag", "onClick: url###" + url);
-                    String js = OKHTTP.doGet(url);
-                    while (!js.contains("type")) {
+//                    Thread thread_Http = new Thread();
+//                   thread_Http
+                    while (js == null || js.length() == 0) {
                         js = OKHTTP.doGet(url);
                     }
-                    if (js.contains("}{\"type\": 4000")) {
+                    if (js.contains("{\"type\": 4000")) {
                         Toast.makeText(getContext(), "查询速度过快", Toast.LENGTH_SHORT).show();
                     } else if (js.contains("\"type\":\"home\"")) {
                         Home home = new Gson().fromJson(js, Home.class);
-                        hotList = home.hot;
-                        newList = home.newX;
+                        DataUtil.home = home;
+                        this.hotList = home.hot;
+                        this.newList = home.newX;
                         show(1);
                     } else {
                         JsonRootBean jsonRootBean = new Gson().fromJson(js, JsonRootBean.class);

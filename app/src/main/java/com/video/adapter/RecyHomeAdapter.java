@@ -1,5 +1,6 @@
 package com.video.adapter;
 
+import android.graphics.Bitmap;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +42,6 @@ public class RecyHomeAdapter extends RecyclerView.Adapter<RecyHomeAdapter.ViewHo
 //        holder.image_home_1.setImageDrawable();
         ViewItemModels viewItemModel = viewItemModels.get(position);
         List<Videos> videos = viewItemModel.getVideos();
-        holder.te_home_1.setText(videos.get(position).getMovieTypeName());
         holder.te_home_name.setText(videos.get(position).getName());
         Log.e(TAG, "onBindViewHolder: videos.get(position).getScore()###" + videos.get(position).getScore());
         holder.te_home_2.setText(videos.get(position).getScore() + "");
@@ -57,15 +57,16 @@ public class RecyHomeAdapter extends RecyclerView.Adapter<RecyHomeAdapter.ViewHo
     class ViewHolder extends RecyclerView.ViewHolder {
         public View rootView;
         public ImageView image_home_1;
-        public TextView te_home_1;
         public TextView te_home_2;
         public TextView te_home_name;
 
         public ViewHolder(View rootView) {
             super(rootView);
             this.rootView = rootView;
+
+//            Bitmap bitmap = null;
+//            image_home_1.setImageBitmap(bitmap);
             this.image_home_1 = (ImageView) rootView.findViewById(R.id.image_home_1);
-            this.te_home_1 = (TextView) rootView.findViewById(R.id.te_home_1);
             this.te_home_2 = (TextView) rootView.findViewById(R.id.te_home_2);
             this.te_home_name = (TextView) rootView.findViewById(R.id.te_home_name);
         }

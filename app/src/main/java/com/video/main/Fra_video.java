@@ -129,7 +129,10 @@ public class Fra_video extends GSYBaseActivityDetail<StandardGSYVideoPlayer> imp
                 this.eps = epsList.get(i);
 
 
+
+
                 vide_3_1.setUp(eps.getUrl(), true, eps.getName());
+
 
                 Log.e("tag", "btn_31_1: eps###" + eps.getUrl());
                 break;
