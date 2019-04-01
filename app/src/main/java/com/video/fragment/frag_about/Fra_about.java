@@ -1,4 +1,4 @@
-package com.video.frag.frag_about;
+package com.video.fragment.frag_about;
 
 import android.content.Intent;
 import android.net.Uri;

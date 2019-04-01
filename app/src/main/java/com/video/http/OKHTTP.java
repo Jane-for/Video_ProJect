@@ -31,7 +31,7 @@ public class OKHTTP {
             @Override
             public void onFailure(Call call, IOException e) {
 
-                Log.e(TAG, "onFailure: IOException###" + e.toString());
+                Log.e(TAG, "onFailure: IOException###"+e.toString() );
 
             }
 
@@ -61,7 +61,7 @@ public class OKHTTP {
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.e(TAG, "onFailure: IOException###" + e.toString());
+                Log.e(TAG, "onFailure: IOException###"+e.toString() );
 
             }
 
@@ -70,6 +70,7 @@ public class OKHTTP {
                 js = response.body().string();
             }
         });
+
         while (js == null) {
             try {
                 Thread.sleep(1);
@@ -77,17 +78,9 @@ public class OKHTTP {
                 e.printStackTrace();
             }
         }
+
         Log.i(TAG, "doGet: js###" + js);
         return js;
-    }
-
-    public static Call doGetIma(String url) {
-//        js = null;
-        Request.Builder builder = new Request.Builder().get().url(url);
-        final Request request = builder.build();
-        Call call = okHttpClient.newCall(request);
-        Log.i(TAG, "doGet: js###" + js);
-        return call;
     }
 
 }

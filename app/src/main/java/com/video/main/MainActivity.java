@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.video.frag.frag_about.Fra_about;
-import com.video.frag.frag_home.Fra_Home;
-import com.video.frag.frag_search.Fra_search;
+import com.video.fragment.frag_about.Fra_about;
+import com.video.fragment.frag_home.Fra_home;
+import com.video.fragment.frag_search.Fra_search;
 
 import jane.com.vip.video_paradise.R;
 
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (id == R.id.nav_camera) {
 
-            transaction.replace(R.id.fra_main, new Fra_Home());
+            transaction.replace(R.id.fra_main, new Fra_home());
         } else if (id == R.id.nav_gallery) {
             transaction.replace(R.id.fra_main, new Fra_search());
         } else if (id == R.id.nav_share) {

@@ -37,12 +37,11 @@ android {
         main {
             res.srcDirs =
                     [
-//                            'src/main/res/layout/search/layout',
-'src/main/res/layout/search',
-'src/main/res/layout/home',
-'src/main/res/layout/about',
-//                            'src/main/res/layout',
-'src/main/res'
+                            'src/main/res/layout/search',
+                            'src/main/res/layout/home',
+                            'src/main/res/layout/about',
+                            'src/main/res/layout/movie',
+                            'src/main/res'
                     ]
         }
     }
