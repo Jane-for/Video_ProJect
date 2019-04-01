@@ -18,12 +18,17 @@
             android:id="@+id/ed_search_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="5" />
+            android:layout_gravity="center"
+            android:layout_weight="15" />
 
         <Button
             android:id="@+id/btn_search_1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:background="@drawable/bac_black_yuan"
+            android:textColor="#fff"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_height="40dp"
             android:text="搜索" />
 
         <TextView

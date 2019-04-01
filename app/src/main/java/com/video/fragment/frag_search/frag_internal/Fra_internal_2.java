@@ -1,4 +1,4 @@
-package com.video.frag.frag_search.frag_internal;
+package com.video.fragment.frag_search.frag_internal;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

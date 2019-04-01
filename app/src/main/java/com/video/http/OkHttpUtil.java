@@ -22,7 +22,6 @@ public class OkHttpUtil {
     private volatile static OkHttpUtil okHttpUtil;//会被多线程使用，所以使用关键字volatile
     private OkHttpClient client;
     private Handler mHandler;
-    //私有化构造方法
     private OkHttpUtil(Context context){
         File sdcache = context.getExternalCacheDir();
         int cacheSize = 10 * 1024 *1024;//设置缓存大小
@@ -34,7 +33,6 @@ public class OkHttpUtil {
         client = builder.build();
         mHandler = new Handler();
     }
-    //单例模式，全局得到一个OkHttpUtil对象
     public static OkHttpUtil getInstance(Context context){
         if (okHttpUtil == null){
             synchronized (OkHttpUtil.class){
@@ -46,10 +44,7 @@ public class OkHttpUtil {
         return okHttpUtil;
     }
 
-    /**get异步请求
-     * @param url
-     * @param callback
-     */
+
     public void getAsynHttp(String url, final OkHttpResultCallback callback){
         Request request = new Request.Builder()
                 .url(url)
@@ -67,20 +62,16 @@ public class OkHttpUtil {
         });
     }
 
-    /**提交表单数据
-     * @param url
-     * @param map
-     * @param callback
-     */
+
     public void postForm(String url, Map<String,String > map, final OkHttpResultCallback callback){
-        FormBody.Builder form = new FormBody.Builder();//表单对象，包含以input开始的对象,以html表单为主
+        FormBody.Builder form = new FormBody.Builder();
         if (map != null && !map.isEmpty()){
             //遍历Map集合
             for(Map.Entry<String ,String> entry : map.entrySet()){
                 form.add(entry.getKey(),entry.getValue());
             }
             RequestBody body = form.build();
-            Request request = new Request.Builder().url(url).post(body).build();//采用post提交数据
+            Request request = new Request.Builder().url(url).post(body).build();
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
@@ -98,11 +89,7 @@ public class OkHttpUtil {
 
     }
 
-    /**当请求失败时，都会调用这个方法
-     * @param call
-     * @param e
-     * @param callback
-     */
+
     private void sendFailedCallback(final Call call, final IOException e, final OkHttpResultCallback callback){
         mHandler.post(() -> {
             Log.i("main","当前线程："+Thread.currentThread().getName());
@@ -112,10 +99,7 @@ public class OkHttpUtil {
         });
     }
 
-    /**请求成功调用该方法
-     * @param response  返回的数据
-     * @param callback 回调的接口
-     */
+
     private void sendSuccessCallback(final Response response, final OkHttpResultCallback callback){
         mHandler.post(() -> {
             Log.i("main","当前线程："+Thread.currentThread().getName());
@@ -130,7 +114,7 @@ public class OkHttpUtil {
     }
 
     //创建接口，回调给调用者
-    interface OkHttpResultCallback{
+    public interface OkHttpResultCallback{
         void onError(Request request, Exception e);
         void onResponse(Response response) throws IOException;
     }

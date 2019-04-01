@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.video.frag.frag_search.Fra_search;
-import com.video.frag.frag_search.frag_internal.Fra_internal_1;
-import com.video.frag.frag_search.frag_internal.Fra_internal_2;
+import com.video.fragment.frag_search.Fra_search;
+import com.video.fragment.frag_search.frag_internal.Fra_internal_1;
+import com.video.fragment.frag_search.frag_internal.Fra_internal_2;
 import com.video.pojo.root.Data;
 import com.video.pojo.home.Hot;
 import com.video.pojo.home.New;

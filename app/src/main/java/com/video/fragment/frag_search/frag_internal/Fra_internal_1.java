@@ -1,4 +1,4 @@
-package com.video.frag.frag_search.frag_internal;
+package com.video.fragment.frag_search.frag_internal;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -44,6 +44,7 @@ public class Fra_internal_1 extends Fragment {
         this.hotList = hotList;
     }
 
+    SearchListViewAdapter searchListViewAdapter;
 
     @Nullable
     @Override
@@ -58,9 +59,16 @@ public class Fra_internal_1 extends Fragment {
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        searchListViewAdapter.notifyDataSetChanged();
+
+    }
+
     private void show() {
 
-        SearchListViewAdapter searchListViewAdapter = new SearchListViewAdapter("newList");
+        searchListViewAdapter  = new SearchListViewAdapter("newList");
         list_search_1.setAdapter(searchListViewAdapter);
         searchListViewAdapter = new SearchListViewAdapter("hotList");
         list_search_2.setAdapter(searchListViewAdapter);
